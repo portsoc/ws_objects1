@@ -12,8 +12,8 @@ function makeCol(i) {
 // create circle and rectangle objects
 const shapes = [];
 
-const NUM = 18;
-const SIZE = 10;
+const NUM = 180;
+const SIZE = 3;
 
 // get a handle on the drawing canvas
 const canvas = document.querySelector('canvas');
