@@ -10,7 +10,7 @@ export class Shape {
     this.y += y;
   }
 
-  moveTowards(x,y) {
+  moveTowards(x, y) {
     this.x -= (this.x - x) / 2;
     this.y -= (this.y - y) / 2;
   }
