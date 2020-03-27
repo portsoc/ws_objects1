@@ -80,3 +80,7 @@ In this set of staged examples we show how we can use objects to structure our d
 * A function that's defined in a superclass is inherited by all classes that extend the superclass.
 * We define a `moveBy` function that accepts two parameters (`x` & `y`) and adds these to the existing `x` and `y` properties of the instance.
 * We use this method to move all shapes to the right and down, then draw them a second time.
+
+## Stage 11: Many objects ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-11))
+
+* In this example, we use the objects we have built to create a picture that would be more difficult to maintain should we attempt to program it without objects.
