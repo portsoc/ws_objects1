@@ -19,11 +19,13 @@ function move(e) {
 }
 
 function draw() {
+  ctx.fillStyle = "rgba(255,255,255,0.1)";
+  ctx.fillRect(0,0,canvas.width, canvas.height)
   t.moveTowards(x,y);
   t.draw(ctx);
 }
 
-const t = new Tentacle(canvas.width/2, canvas.height/2, 200, 2);
+const t = new Tentacle(canvas.width/2, canvas.height/2, 400, 1);
 
 document.querySelector('canvas').addEventListener('mousemove', move);
 
