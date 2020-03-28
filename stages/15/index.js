@@ -13,10 +13,17 @@ const ctx = canvas.getContext('2d');
 let x = 0;
 let y = 0;
 
+function touchMove(e) {
+  e.preventDefault();
+  x = e.changedTouches[0].pageX - canvas.offsetLeft;
+  y = e.changedTouches[0].pageY - canvas.offsetTop;
+}
+
 function move(e) {
   x = e.clientX - canvas.offsetLeft;
   y = e.clientY - canvas.offsetTop;
 }
+
 
 function draw() {
   ctx.fillStyle = "rgba(255,255,255,0.1)";
@@ -27,6 +34,7 @@ function draw() {
 
 const t = new Tentacle(canvas.width/2, canvas.height/2, 400, 1);
 
-document.querySelector('canvas').addEventListener('mousemove', move);
-
+canvas.addEventListener('mousemove', move);
+canvas.addEventListener("touchstart", touchMove);
+canvas.addEventListener("touchmove", touchMove);
 window.setInterval(draw, 0);
