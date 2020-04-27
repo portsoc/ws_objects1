@@ -96,7 +96,7 @@ In this set of staged examples we show how we can use objects to structure our d
 
 * Here we've realised that we have the potential to build something quite pretty, so we've experimented with making it take up the full screen.
 
-## Stage 14: Refactoring a Tentacle changes ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-14))
+## Stage 14: Refactoring a Tentacle class ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-14))
 
 * The code that was previously adding to the complexity of the index has been refactored to form a new `Tentacle` class.
 * Tentacles, when constructed require an `x` and `y` position, as well as a `num` and `size` (parameters that were introduced in stage 11 as constants).
