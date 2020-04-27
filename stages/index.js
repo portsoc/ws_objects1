@@ -1,17 +1,23 @@
 'use strict';
 /**
- * We add a `Circle` class to complement our `Rectangle`.
- * Circles have `x` and `y` position as well
- * as a radius (`r`).
+ * We refactor the `Rectangle` and `Circle` classes,
+ * taking the common properties and functions and
+ * moving them to a new _superclass_ called `Shape`.
  */
 
-class Rectangle {
-  constructor(x, y, width, height, col) {
+class Shape {
+  constructor(x, y, col) {
     this.x = x;
     this.y = y;
+    this.col = col;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(x, y, width, height, col) {
+    super(x, y, col);
     this.width = width;
     this.height = height;
-    this.col = col;
   }
 
   draw(ctx) {
@@ -20,12 +26,10 @@ class Rectangle {
   }
 }
 
-class Circle {
+class Circle extends Shape {
   constructor(x, y, r, col) {
-    this.x = x;
-    this.y = y;
+    super(x, y, col);
     this.r = r;
-    this.col = col;
   }
 
   draw(ctx) {
