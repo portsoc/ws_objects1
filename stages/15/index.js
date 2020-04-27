@@ -32,6 +32,10 @@ function draw() {
 
 const t = new Tentacle(canvas.width / 2, canvas.height / 2, 180, 3);
 
+// make canvas similar color to what it fades to
+ctx.fillStyle = '#300';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 canvas.addEventListener('mousemove', move);
 canvas.addEventListener('touchstart', touchMove);
 canvas.addEventListener('touchmove', touchMove);

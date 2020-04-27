@@ -102,8 +102,8 @@ In this set of staged examples we show how we can use objects to structure our d
 * Tentacles, when constructed require an `x` and `y` position, as well as a `num` and `size` (parameters that were introduced in stage 11 as constants).
 * It is now the responsibility of the tentacle to loop over the various objects (the existence of which is now hidden from the top-level program - the `Circle` class is no longer imported - `Tentacle` replaces it).
 
-## Stage 15: Draw & Touch ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-14))
+## Stage 15: Draw & Touch ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-15))
 
-* Drawing and tentacle movement are no longer dependent on user interaction.  We now use `setInterval` to (perhaps lazily) constantly request that the content is redrawn.
+* Drawing and tentacle movement are no longer dependent on user interaction.  We now use `requestAnimationFrame` to constantly request that the content is redrawn.
 * The draw function also clears the backdrop using a slightly-transparent rectangle, so that after a few frames of overdrawing any content that is not directly under the current tentacle will be removed.
 * In addition to mouse input, this version adds touch events, so the tentacle will work on mobile phones and tablets.
