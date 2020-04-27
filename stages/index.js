@@ -9,16 +9,18 @@ function makeCol(i) {
 // create circle and rectangle objects
 const shapes = [];
 
-const NUM = 18;
-const SIZE = 10;
-
-for (let i = 0; i < NUM; i += 1) {
-  shapes.push(new Circle(400, 400, (NUM - i) * SIZE, makeCol(i)));
-}
+const NUM = 180;
+const SIZE = 3;
 
 // get a handle on the drawing canvas
 const canvas = document.querySelector('canvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
+
+for (let i = 0; i < NUM; i += 1) {
+  shapes.push(new Circle(canvas.width / 2, canvas.height / 2, (NUM - i) * SIZE, makeCol(i)));
+}
 
 function draw() {
   for (const s of shapes) {
