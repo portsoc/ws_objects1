@@ -1,12 +1,9 @@
 'use strict';
-/**
- * todo
- */
 
 import { Circle } from './classes.mjs';
 
 function makeCol(i) {
-  return `hsl(${i * 360 / NUM}deg, 100%, 80%)`;
+  return `hsl(${i * 360 / NUM}deg, 100%, 50%)`;
 }
 
 // create circle and rectangle objects

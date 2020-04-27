@@ -1,7 +1,4 @@
 'use strict';
-/**
- * todo
- */
 
 import { Tentacle } from './classes.mjs';
 
@@ -16,6 +13,6 @@ function move(e) {
   t.draw(ctx);
 }
 
-const t = new Tentacle(canvas.width / 2, canvas.height / 2, 40, 5);
+const t = new Tentacle(canvas.width / 2, canvas.height / 2, 180, 3);
 
 document.querySelector('canvas').addEventListener('mousemove', move);

@@ -1,7 +1,4 @@
 'use strict';
-/**
- * todo
- */
 
 import { Tentacle } from './classes.mjs';
 
@@ -10,8 +7,8 @@ const canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
-let x = 0;
-let y = 0;
+let x = canvas.width / 2;
+let y = canvas.height / 2;
 
 function touchMove(e) {
   e.preventDefault();
@@ -26,14 +23,14 @@ function move(e) {
 
 
 function draw() {
-  ctx.fillStyle = 'rgba(255,255,255,0.1)';
+  ctx.fillStyle = 'rgba(0,0,0,0.01)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   t.moveTowards(x, y);
   t.draw(ctx);
   requestAnimationFrame(draw);
 }
 
-const t = new Tentacle(canvas.width / 2, canvas.height / 2, 400, 1);
+const t = new Tentacle(canvas.width / 2, canvas.height / 2, 180, 3);
 
 canvas.addEventListener('mousemove', move);
 canvas.addEventListener('touchstart', touchMove);

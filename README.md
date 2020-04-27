@@ -61,7 +61,7 @@ In this set of staged examples we show how we can use objects to structure our d
 ## Stage 8: A file for classes ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-8))
 
 * When code gets longer, often it's a good idea to modularise by moving independent pieces into separate files:
-  * Here, we can move the class definitions into `classes.mjs`.  
+  * Here, we can move the class definitions into `classes.mjs`.
   * The `.mjs` extension is a convention used for JavaScript modules.
 * JavaScript modules `export` functions and variables.  The `import` keyword is used to make these available in other files.
   * The `script` element in `index.html` must specify that `type=module` – only then are `import` and `export` allowed.
@@ -84,3 +84,26 @@ In this set of staged examples we show how we can use objects to structure our d
 ## Stage 11: Many objects ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-11))
 
 * In this example, we use the objects we have built to create a picture that would be more difficult to maintain should we attempt to program it without objects.
+* Instead of manually creating objects, we are generating them in a loop, and controlling the number and size of the objects through constants `NUM` and `SIZE` constants.
+
+## Stage 12: User interaction ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-12))
+
+* In this example the drawing loop is moved into a `draw` function and called initially.  Thereafter any updates to the page are caused by user interaction.
+* Every time the mouse moves anywhere over the document a `move` function is invoked.  The role of this function is to move the smallest object towards the mouse's x/y position, and to move each subsequent object towards the x/y position of the object in front of it.
+* Notice that as we build and experiment with new capabilities the code becomes longer and more complex.
+
+## Stage 13: Cosmetic changes ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-13))
+
+* Here we've realised that we have the potential to build something quite pretty, so we've experimented with making it take up the full screen.
+
+## Stage 14: Refactoring a Tentacle changes ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-14))
+
+* The code that was previously adding to the complexity of the index has been refactored to form a new `Tentacle` class.
+* Tentacles, when constructed require an `x` and `y` position, as well as a `num` and `size` (parameters that were introduced in stage 11 as constants).
+* It is now the responsibility of the tentacle to loop over the various objects (the existence of which is now hidden from the top-level program - the `Circle` class is no longer imported - `Tentacle` replaces it).
+
+## Stage 15: Draw & Touch ([see the diff](https://github.com/portsoc/ws_objects1/commit/stage-14))
+
+* Drawing and tentacle movement are no longer dependent on user interaction.  We now use `setInterval` to (perhaps lazily) constantly request that the content is redrawn.
+* The draw function also clears the backdrop using a slightly-transparent rectangle, so that after a few frames of overdrawing any content that is not directly under the current tentacle will be removed.
+* In addition to mouse input, this version adds touch events, so the tentacle will work on mobile phones and tablets.
