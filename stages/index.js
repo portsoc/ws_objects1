@@ -1,34 +1,40 @@
 'use strict';
 /**
- * We can remove the repetition in the drawing
- * logic by making a function for it.
+ * We can _structure_ the properties better, and
+ * make the code a little easier to read by
+ * constructing objects.
  *
- * The `drawRect` function has six parameters: the
- * drawing context and the five rectangle parameters.
+ * Our `drawRect` function no longer needs
+ * six parameters and the code is easier to read.
  */
 
-// create five variables
-const rect1x = 100;
-const rect1y = 50;
-const rect1width = 100;
-const rect1height = 200;
-const rect1col = 'crimson';
+// create an object
+const rect1 = {
+  x: 100,
+  y: 50,
+  width: 100,
+  height: 200,
+  col: 'crimson',
+};
 
-// create another five variables
-const rect2x = 300;
-const rect2y = 150;
-const rect2width = 100;
-const rect2height = 200;
-const rect2col = 'steelblue';
+// create another object
+const rect2 = {
+  x: 300,
+  y: 150,
+  width: 100,
+  height: 200,
+  col: 'steelblue',
+};
+
 
 // draw a rectangle
-function drawRect(c, x, y, w, h, col) {
-  c.fillStyle = col;
-  c.fillRect(x, y, w, h);
+function drawRect(c, r) {
+  c.fillStyle = r.col;
+  c.fillRect(r.x, r.y, r.width, r.height);
 }
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-drawRect(ctx, rect1x, rect1y, rect1width, rect1height, rect1col);
-drawRect(ctx, rect2x, rect2y, rect2width, rect2height, rect2col);
+drawRect(ctx, rect1);
+drawRect(ctx, rect2);
