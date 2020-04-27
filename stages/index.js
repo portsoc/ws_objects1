@@ -17,9 +17,28 @@ for (let i = 0; i < NUM; i += 1) {
 }
 
 // get a handle on the drawing canvas
-const ctx = document.querySelector('canvas').getContext('2d');
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
 
-for (const s of shapes) {
-  s.draw(ctx);
-  console.log(s.col);
+function draw() {
+  for (const s of shapes) {
+    s.draw(ctx);
+  }
 }
+
+draw();
+
+function move(e) {
+  let prev = {
+    x: e.clientX - canvas.offsetLeft,
+    y: e.clientY - canvas.offsetTop,
+  };
+  for (let i = shapes.length - 1; i >= 0; i--) {
+    const s = shapes[i];
+    s.moveTowards(prev.x, prev.y);
+    prev = { x: s.x, y: s.y };
+  }
+  draw();
+}
+
+document.querySelector('canvas').addEventListener('mousemove', move);

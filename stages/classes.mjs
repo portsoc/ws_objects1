@@ -9,6 +9,11 @@ export class Shape {
     this.x += x;
     this.y += y;
   }
+
+  moveTowards(x, y) {
+    this.x -= (this.x - x) / 2;
+    this.y -= (this.y - y) / 2;
+  }
 }
 
 export class Rectangle extends Shape {
