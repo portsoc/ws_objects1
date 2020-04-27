@@ -17,12 +17,12 @@ const SIZE = 3;
 
 // get a handle on the drawing canvas
 const canvas = document.querySelector('canvas');
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
 
 for (let i = 0; i < NUM; i += 1) {
-  shapes.push(new Circle(canvas.width/2, canvas.height/2, (NUM - i) * SIZE, makeCol(i)));
+  shapes.push(new Circle(canvas.width / 2, canvas.height / 2, (NUM - i) * SIZE, makeCol(i)));
 }
 
 function draw() {

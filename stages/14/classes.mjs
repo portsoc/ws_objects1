@@ -45,10 +45,11 @@ export class Circle extends Shape {
 
 
 export class Tentacle {
-  // private method
-  makeCol = i => `hsl(${i * 360 / this.num}deg, 100%, 50%)`;
+  makeCol(i) {
+    return `hsl(${i * 360 / this.num}deg, 100%, 50%)`;
+  }
 
-  constructor(x,y, num, size) {
+  constructor(x, y, num, size) {
     this.x = x;
     this.y = y;
     this.num = num;
@@ -66,7 +67,7 @@ export class Tentacle {
     }
   }
 
-  moveTowards(x,y) {
+  moveTowards(x, y) {
     let prev = { x, y };
     for (let i = this.shapes.length - 1; i >= 0; i--) {
       const s = this.shapes[i];
