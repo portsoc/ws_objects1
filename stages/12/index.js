@@ -1,7 +1,4 @@
 'use strict';
-/**
- * todo
- */
 
 import { Circle } from './classes.mjs';
 
