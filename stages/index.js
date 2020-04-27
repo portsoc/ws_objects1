@@ -1,8 +1,10 @@
 'use strict';
 /**
- * If we want a _second_ rectangle (and simultaneously being
- * deliberately naïve) we might just create five additional
- * variables and duplicate our drawing code.
+ * We can remove the repetition in the drawing
+ * logic by making a function for it.
+ *
+ * The `drawRect` function has six parameters: the
+ * drawing context and the five rectangle parameters.
  */
 
 // create five variables
@@ -19,13 +21,14 @@ const rect2width = 100;
 const rect2height = 200;
 const rect2col = 'steelblue';
 
+// draw a rectangle
+function drawRect(c, x, y, w, h, col) {
+  c.fillStyle = col;
+  c.fillRect(x, y, w, h);
+}
+
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-// draw the rectangle
-ctx.fillStyle = rect1col;
-ctx.fillRect(rect1x, rect1y, rect1width, rect1height);
-
-// draw it in the new position, with a different colour
-ctx.fillStyle = rect2col;
-ctx.fillRect(rect2x, rect2y, rect2width, rect2height);
+drawRect(ctx, rect1x, rect1y, rect1width, rect1height, rect1col);
+drawRect(ctx, rect2x, rect2y, rect2width, rect2height, rect2col);
