@@ -4,6 +4,11 @@ export class Shape {
     this.y = y;
     this.col = col;
   }
+
+  moveBy(x, y) {
+    this.x += x;
+    this.y += y;
+  }
 }
 
 export class Rectangle extends Shape {

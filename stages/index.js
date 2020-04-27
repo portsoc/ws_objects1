@@ -1,7 +1,10 @@
 'use strict';
 /**
- * We use an array instead of four variables,
- * resulting in cleaner code.
+ * Adding functions to a superclass makes them available
+ * to all classes that extend it.
+ *
+ * Here, we use `moveBy()` on rectangles and circles
+ * even though it is only defined on Shape.
  */
 
 import { Circle, Rectangle } from './classes.mjs';
@@ -18,5 +21,7 @@ const shapes = [
 const ctx = document.querySelector('canvas').getContext('2d');
 
 for (const s of shapes) {
+  s.draw(ctx);
+  s.moveBy(110, 30);
   s.draw(ctx);
 }
