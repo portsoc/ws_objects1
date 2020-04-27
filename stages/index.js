@@ -1,20 +1,22 @@
 'use strict';
 /**
- * We moved the classes to a separate file called `classes.mjs`.
+ * We use an array instead of four variables,
+ * resulting in cleaner code.
  */
 
 import { Circle, Rectangle } from './classes.mjs';
 
 // create circle and rectangle objects
-const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
-const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
-const circ1 = new Circle(150, 350, 50, 'crimson');
-const circ2 = new Circle(350, 450, 50, 'steelblue');
+const shapes = [
+  new Rectangle(100, 50, 100, 200, 'crimson'),
+  new Rectangle(300, 150, 100, 200, 'steelblue'),
+  new Circle(150, 350, 50, 'crimson'),
+  new Circle(350, 450, 50, 'steelblue'),
+];
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-rect1.draw(ctx);
-rect2.draw(ctx);
-circ1.draw(ctx);
-circ2.draw(ctx);
+for (const s of shapes) {
+  s.draw(ctx);
+}
