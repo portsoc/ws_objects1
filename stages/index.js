@@ -1,24 +1,31 @@
 'use strict';
 /**
- * We can describe a rectangle in terms of five
- * properies: the x and y position of its top left
- * corner, its width, its height and its colour.
- *
- * We create five variables for these properties.
- *
- * We draw the rectangle, move it, and then draw it again.
+ * If we want a _second_ rectangle (and simultaneously being
+ * deliberately naïve) we might just create five additional
+ * variables and duplicate our drawing code.
  */
 
 // create five variables
-const rectX = 100;
-const rectY = 50;
-const rectWidth = 100;
-const rectHeight = 200;
-const rectCol = 'crimson';
+const rect1x = 100;
+const rect1y = 50;
+const rect1width = 100;
+const rect1height = 200;
+const rect1col = 'crimson';
+
+// create another five variables
+const rect2x = 300;
+const rect2y = 150;
+const rect2width = 100;
+const rect2height = 200;
+const rect2col = 'steelblue';
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
 // draw the rectangle
-ctx.fillStyle = rectCol;
-ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
+ctx.fillStyle = rect1col;
+ctx.fillRect(rect1x, rect1y, rect1width, rect1height);
+
+// draw it in the new position, with a different colour
+ctx.fillStyle = rect2col;
+ctx.fillRect(rect2x, rect2y, rect2width, rect2height);
