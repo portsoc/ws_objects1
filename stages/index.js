@@ -7,12 +7,36 @@ const canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
+let x = canvas.width / 2;
+let y = canvas.height / 2;
+
+function touchMove(e) {
+  e.preventDefault();
+  x = e.changedTouches[0].pageX - canvas.offsetLeft;
+  y = e.changedTouches[0].pageY - canvas.offsetTop;
+}
 
 function move(e) {
-  t.moveTowards(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+  x = e.clientX - canvas.offsetLeft;
+  y = e.clientY - canvas.offsetTop;
+}
+
+
+function draw() {
+  ctx.fillStyle = 'rgba(0,0,0,0.01)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  t.moveTowards(x, y);
   t.draw(ctx);
+  requestAnimationFrame(draw);
 }
 
 const t = new Tentacle(canvas.width / 2, canvas.height / 2, 180, 3);
 
-document.querySelector('canvas').addEventListener('mousemove', move);
+// make canvas similar color to what it fades to
+ctx.fillStyle = '#300';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+canvas.addEventListener('mousemove', move);
+canvas.addEventListener('touchstart', touchMove);
+canvas.addEventListener('touchmove', touchMove);
+draw();
