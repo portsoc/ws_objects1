@@ -22,12 +22,12 @@ function move(e) {
 }
 
 
-function draw() {
+function step() {
   ctx.fillStyle = 'rgba(0,0,0,0.01)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   t.moveTowards(x, y);
   t.draw(ctx);
-  requestAnimationFrame(draw);
+  requestAnimationFrame(step);
 }
 
 const t = new Tentacle(canvas.width / 2, canvas.height / 2, 180, 3);
@@ -39,4 +39,4 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 canvas.addEventListener('mousemove', move);
 canvas.addEventListener('touchstart', touchMove);
 canvas.addEventListener('touchmove', touchMove);
-draw();
+step();
