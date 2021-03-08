@@ -21,5 +21,4 @@ const ctx = document.querySelector('canvas').getContext('2d');
 
 for (const s of shapes) {
   s.draw(ctx);
-  console.log(s.col);
 }
