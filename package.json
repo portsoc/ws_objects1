@@ -15,5 +15,12 @@
     "eslint": "^6.8.0",
     "eslint-config-portsoc": "^0.5.0",
     "http-server": "^0.12.1"
+  },
+  "eslintConfig": {
+    "extends": "portsoc",
+    "root": true,
+    "env": {
+      "browser": true
+    }
   }
 }
